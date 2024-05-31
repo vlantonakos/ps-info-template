@@ -13,8 +13,7 @@ To use and modify this project, you need the following:
 - Basic knowledge of HTML, CSS, and JavaScript
 
 
-** [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): Go to the Extensions view by clicking on the Extensions icon in the Sidebar or pressing Ctrl+Shift+X. Search for "Live Server" and install the extension by Ritwick Dey (OR search with id = ritwickdey.LiveServer).
-
+** [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): Go to the Extensions view by clicking on the Extensions icon in the Sidebar or pressing Ctrl+Shift+X. Search for "Live Server" and install the extension by Ritwick Dey (OR search with id = ritwickdey.LiveServer). [live server img](image.png)
 
 ## Setup Instructions
 
@@ -35,21 +34,21 @@ Open the HTML file you want to preview in the browser using this port ( for exam
 
 The project structure is as follows:
 
-/project folder
+project
 │
-├── index.html                       # Main HTML file
-├── styles.css                       # Custom CSS styles
+├── index.html # Main HTML file
+├── styles.css # Custom CSS styles
 ├── js/
-│   ├── jquery-functions.js          # Custom jQuery functions to fetch Questions, Evidences and to handle answers in the questionnaire
-│   └── change-language-functions.js # Language switch functions
-├── questions-utils                  # Custom CSS styles
-│   ├── all-questions-en.json        # json for english questions + answers
-│   ├── all-questions.json           # json for greek questions + answers
-│   ├── cpsv-en.json                 # 
-│   ├── cpsv.json                    # 
-│   ├── faq-en.json                  # 
-│   ├── faq.json                     # 
-└── README.md                        # Project documentation
+│ ├── jquery-functions.js # Custom jQuery functions to fetch Questions, Evidences and to handle answers in the questionnaire
+│ └── change-language-functions.js # Language switch functions
+├── questions-utils/
+│ ├── all-questions-en.json # JSON for English questions + answers
+│ ├── all-questions.json # JSON for Greek questions + answers
+│ ├── cpsv-en.json #
+│ ├── cpsv.json #
+│ ├── faq-en.json #
+│ ├── faq.json #
+└── README.md # Project documentation
 
 # Acknowledgments
 
