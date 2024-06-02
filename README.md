@@ -50,6 +50,13 @@ project
 │ ├── faq.json # has all FAQs questions&answers in greek
 └── README.md # Project documentation
 ```
+## Acknowledgments
+
+To deploy your site to github pages you need to: 
+1. Make the repo public (unless you have a pro github account). 
+2. Go to settings
+3. From the menu at the left side of the page select "Pages"
+4. Select this options -> Source: "Deploy from a branch" & Branch: The branch you want to deploy (Prefer to merge all your branches to the main branch and deploy this one)
 
 ## Acknowledgments
 
