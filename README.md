@@ -50,7 +50,7 @@ project
 │ ├── faq.json # has all FAQs questions&answers in greek
 └── README.md # Project documentation
 ```
-## Acknowledgments
+## Deployment Instructions
 
 To deploy your site to github pages you need to: 
 1. Make the repo public (unless you have a pro github account). 
