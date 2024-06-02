@@ -13,14 +13,13 @@ To use and modify this project, you need the following:
 - Live Server extension for VSCode \*\* (or an equivalent development server like Apache)
 - Basic knowledge of HTML, CSS, and JavaScript
 
-[Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): Go to the Extensions view by clicking on the Extensions icon in the Sidebar or pressing Ctrl+Shift+X. Search for "Live Server" and install the extension by Ritwick Dey (OR search with id = ritwickdey.LiveServer). 
+\*\* [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): Go to the Extensions view by clicking on the Extensions icon in the Sidebar or pressing Ctrl+Shift+X. Search for "Live Server" and install the extension by Ritwick Dey (OR search with id = ritwickdey.LiveServer). 
 
 ## Setup Instructions
 
 ### 1. Clone the Repository
 
-First, clone this repository to your local machine:
-Open a terminal(CMD) in a folder and run
+First, clone this repository to your local machine. Open a terminal (CMD) in a folder and run:
 
 ```sh
    git clone https://github.com/govgr-mobility-card/ps-info-template.git
@@ -28,8 +27,7 @@ Open a terminal(CMD) in a folder and run
 
 ### 2. Open the project folder in VSCode:
 
-Start the Live Server (in the bottom-right click on 'Go Live'). You will see a port number "Port:XXXX".
-Open the HTML file you want to preview in the browser using this port ( for example http://localhost:5500/)
+Open the project folder in VSCode and start the Live Server (click 'Go Live' at the bottom-right). You will see a port number, e.g., "Port:XXXX". Open the HTML file you want to preview in the browser using this port (e.g., http://localhost:5500/).
 
 ## Navigating the Project
 
