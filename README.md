@@ -17,13 +17,9 @@ To use and modify this project, you need the following:
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+### 1. Download the Repository
 
-First, clone this repository to your local machine. Open a terminal (CMD) in a folder and run:
-
-```sh
-   git clone https://github.com/govgr-mobility-card/ps-info-template.git
-```
+First, download this repository to your local machine.
 
 ### 2. Open the project folder in VSCode:
 
