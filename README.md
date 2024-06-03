@@ -48,8 +48,9 @@ project
 ```
 ## Deployment Instructions
 
-To deploy your site to GitHub Pages, follow these steps: 
 (Note: You should already have uploaded your project to a github repo)
+
+To deploy your site to GitHub Pages, follow these steps: 
 
 1.Make the repository public (unless you have a GitHub Pro account, which allows private repositories to be deployed).
 
