@@ -302,7 +302,7 @@ $("document").ready(function () {
     const errorEnd = document.createElement("h5");
     const error =
       currentLanguage === "greek"
-        ? "Λυπούμαστε αλλά δεν δικαιούστε το δελτίο μετακίνησης ΑΜΕΑ!"
+        ? "Λυπούμαστε αλλά δεν δικαιούστε το Επίδομα Γέννησης!"
         : "We are sorry but you are not entitled to the transportation card for the disabled!";
     errorEnd.className = "govgr-error-summary";
     errorEnd.textContent = error + " " + message;
@@ -325,77 +325,42 @@ $("document").ready(function () {
       var answer = sessionStorage.getItem("answer_" + i);
       allAnswers.push(answer);
     }
-    if (allAnswers[0] === "2") {
+    if (allAnswers[0] === "1") { // Έχετε κωδικούς taxisnet; -> Ναι
       getEvidencesById(9);
     }
-    if (allAnswers[2] === "4") {
+    if (allAnswers[1] === "1") { // Το παιδί σας έχει γεννηθεί στην Ελλάδα από 1-1-2020 και μετά; -> Ναι
       getEvidencesById(11);
     }
-    if (allAnswers[4] === "1") {
+    if (allAnswers[2] === "1") { // Είναι το ισοδύναμο οικογενειακό εισόδημα σας κάτω από 40.000,00 ευρώ ετησίως; -> Ναι
       getEvidencesById(6);
-    } else if (allAnswers[4] === "2") {
-      getEvidencesById(7);
-    } else if (allAnswers[4] === "3") {
-      getEvidencesById(8);
     }
-    if (
-      allAnswers[5] === "1" ||
-      (allAnswers[5] === "2")
-    ) {
+    if (allAnswers[3] === "1") { // Διαμένετε μόνιμα και νόμιμα στην Ελλάδα; -> Ναι
       getEvidencesById(10);
       currentLanguage === "greek"
-        ? setResult("Δικαιούται και ο συνοδός το ίδιο δελτίο μετακίνησης.")
+        ? setResult("Συνολικά η ενίσχυση ανέρχεται σε 2.000 ευρώ και καταβάλλεται σε δύο ισόποσες δόσεις των 1.000 ευρώ. Η 1η δόση χορηγείται τον επόμενο μήνα από τη γέννηση του παιδιού, εφόσον η αίτηση υποβληθεί και εγκριθεί μέσα στο μήνα γέννησης του παιδιού και η 2η δόση μετά από πέντε μήνες από το μήνα γέννησης του παιδιού. ")
         : setResult("The companion is also entitled with the same transportation card.");
     }
-
-    if (allAnswers[6] === "2") {
-      getEvidencesById(3);
-      getEvidencesById(4);
-    } else if (allAnswers[6] === "3") {
-      getEvidencesById(3);
-      getEvidencesById(5);
-    }
-    if (allAnswers[7] === "1") {
+    if (allAnswers[4] === "1") { // Είστε έλληνας πολίτης; -> Ναι
       getEvidencesById(12);
       currentLanguage === "greek"
       ? setResult(
-          "Δικαιούστε έκπτωση 50% για τις εκτός ορίων της περιφέρειας σας μετακινήσεις με υπεραστικά ΚΤΕΛ."
+          "ΠΡΟΣΟΧΗ: Για δίδυμα είναι 4.000€ κ.ο.κ."
         )
       : setResult(
           "You are entitled to a 50% discount for transportation outside the boundaries of your region with long-distance bus services (named KTEL)."
         );
-    } else if (allAnswers[7] === "2" && allAnswers[5] !== "1") {
-      getEvidencesById(2);
-      if (allAnswers[8] === "1") {
-        currentLanguage === "greek"
-          ? setResult(
-              "Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της περιφέρειας σου μετακινήσεις με υπεραστικά ΚΤΕΛ."
-            )
-          : setResult(
-              "You are entitled to free transportation with the urban public bus of your region and a 50% discount for transportation outside the boundaries of your region with long-distance (intercity) bus services (named KTEL)."
-            );
-      } else if (allAnswers[8] === "2") {
-        currentLanguage === "greek"
-          ? setResult(
-              "Δικαιούσαι έκπτωση 50% για τις εκτός ορίων της περιφέρειας σου μετακινήσεις με υπεραστικά ΚΤΕΛ."
-            )
-          : setResult(
-              "You are entitled to a 50% discount for transportation outside the boundaries of your region with long-distance bus services (named KTEL)."
-            );
-      }
-    }
-    else if(allAnswers[7] === "2" && allAnswers[5] === "1"){
+    } else {
       currentLanguage === "greek"
       ? setResult(
-          "Δικαιούσαι δωρεάν μετακίνησης με τα αστικά μέσα συγκοινωνίας της περιφέρειας σου και έκπτωση 50% για τις εκτός ορίων της περιφέρειας σου μετακινήσεις με υπεραστικά ΚΤΕΛ."
+          "Δεν πληροίτε τις προϋποθέσεις."
         )
       : setResult(
-          "You are entitled to free transportation with the urban public bus of your region and a 50% discount for transportation outside the boundaries of your region with long-distance (intercity) bus services (named KTEL)."
+          "You do not meet the requirements."
         );
     }
   }
 
-  function submitForm() {
+function submitForm() {
     const resultWrapper = document.createElement("div");
     const titleText =
       currentLanguage === "greek"
@@ -409,7 +374,7 @@ $("document").ready(function () {
     evidenceListElement.setAttribute("id", "evidences");
     currentLanguage === "greek"
       ? $(".question-container").append(
-          "<br /><br /><h5 class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το δελτίο μετακίνησης είναι τα εξής:</h5><br />"
+          "<br /><br /><h5 class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το Επίδομα Γέννησης είναι τα εξής:</h5><br />"
         )
       : $(".question-container").append(
           "<br /><br /><h5 class='answer'>The documents you need to provide in order to receive your transportation card are the following:</h5><br />"
@@ -420,22 +385,28 @@ $("document").ready(function () {
     hideFormBtns();
   }
 
-  $("#nextQuestion").click(function () {
+$("#nextQuestion").click(function () {
     if ($(".govgr-radios__input").is(":checked")) {
       var selectedRadioButtonIndex =
         $('input[name="question-option"]').index(
           $('input[name="question-option"]:checked')
         ) + 1;
       console.log(selectedRadioButtonIndex);
-      if (currentQuestion === 0 && selectedRadioButtonIndex === 3) {
+      if (currentQuestion === 0 && selectedRadioButtonIndex === 2) { // No taxisnet codes
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Μπορείτε να το εκδώσετε ξανά μόνο μια φορά μετά από απώλεια.") : skipToEnd("You can reissue it only one time after loss.");
-      } else if (currentQuestion === 1 && selectedRadioButtonIndex === 2) {
+        currentLanguage === "greek" ? skipToEnd("Πρέπει να έχετε κωδικούς taxisnet.") : skipToEnd("You must have taxisnet codes.");
+      } else if (currentQuestion === 1 && selectedRadioButtonIndex === 2) { // Child not born in Greece after 1-1-2020
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Πρέπει να είστε μόνιμος και νόμιμος κάτοικος της Ελλάδας.") : skipToEnd("You must be permanent and legal resident of Greece.");
-      } else if (currentQuestion === 3 && selectedRadioButtonIndex === 2) {
+        currentLanguage === "greek" ? skipToEnd("Το παιδί σας πρέπει να έχει γεννηθεί στην Ελλάδα από 1-1-2020 και μετά.") : skipToEnd("Your child must have been born in Greece on or after 1-1-2020.");
+      } else if (currentQuestion === 2 && selectedRadioButtonIndex === 2) { // Family income above 40,000 euros
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Πρέπει να έχετε ποσοστό αναπηρίας 67% και άνω ή να είστε δικαιούχος του επιδόματος ΟΠΕΚΑ.") : skipToEnd("You must have a disability rate of 67% or more or be a beneficiary of the OPEKA benefit.");
+        currentLanguage === "greek" ? skipToEnd("Το οικογενειακό εισόδημα πρέπει να είναι κάτω από 40.000,00 ευρώ ετησίως.") : skipToEnd("The family income must be below 40,000 euros annually.");
+      } else if (currentQuestion === 3 && selectedRadioButtonIndex === 2) { // Not a permanent and legal resident of Greece
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Πρέπει να είστε μόνιμος και νόμιμος κάτοικος της Ελλάδας.") : skipToEnd("You must be a permanent and legal resident of Greece.");
+      } else if (currentQuestion === 4 && selectedRadioButtonIndex === 2) { // Not a Greek citizen
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Πρέπει να είστε έλληνας πολίτης.") : skipToEnd("You must be a Greek citizen.");
       } else {
         //save selectedRadioButtonIndex to the storage
         userAnswers[currentQuestion] = selectedRadioButtonIndex;
@@ -505,4 +476,5 @@ $("document").ready(function () {
       });
     });
   });
+
 });
